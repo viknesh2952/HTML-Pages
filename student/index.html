@@ -1,0 +1,124 @@
+<!--<!DOCTYPE html>
+<head>
+    <title>Student Management</title>
+</head>
+<body>
+<div style="width:350px;height:600pxmargin-top:200px;margin-left:450px;border:2px solid black;padding:20px;"><form name="registration" action=" " method="post">
+<table>
+    <tr><td>Student-ID</td><td><input type="text" name="name" required></td><tr>
+    <tr><td>Student Name</td><td><input type="text" name="id" required></td><tr>
+</table>
+<label>Year</label><select name="fields" required>
+<option selected="" value="Default">select</option>
+<option value="1">I Year</option>
+<option value="2">II Year</option>
+<option value="3">III Year</option>
+<option value="4">IV Year</option>
+</select>
+<tr><td>Branch</td><td><select name="Branch" required>
+<option selected="" value="Default">(Please select Your Branch )</option>
+<option value="cse">CSE</option>
+<option value="it">IT</option>
+<option value="ece">ECE</option>
+<option value="eee">EEE</option>
+<option value="mechanical">MECH</option>
+<option value="civil">CIVIL</option>
+</select></td><tr>
+</table>
+<label>Gender</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="radio" id="male" name="gender" value="male">
+Male
+<input type="radio" id="female" name="gender" value="female">
+Female
+<input type="radio" id="other" name="gender" value="other">
+Other<br>
+<label>Proctor</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="proctor"><br><br>
+<input type="submit" name="submit">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="display.html" target="blank"><input type="button" name="view" value="View Details"></a>
+</form>
+</div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<head>
+    <title>Student Management</title>
+<script language="javascript" type="text/javascript">
+    function dynamicdropdown(listindex)
+    {
+        switch (listindex)
+        {
+        case "year" :
+            document.getElementById("status").options[0]=new Option("Select year","");
+            document.getElementById("status").options[1]=new Option("IYEAR","first");
+            document.getElementById("status").options[2]=new Option("IIYEAR","second");
+            document.getElementById("status").options[3]=new Option("IIIYEAR","third");
+            document.getElementById("status").options[4]=new Option("IVYEAR","final");
+            document.getElementById("status").options[5]=new Option("---","");
+            document.getElementById("status").options[6]=new Option("---","");break;
+        case "branch" :
+            document.getElementById("status").options[0]=new Option("Select branch","");
+            document.getElementById("status").options[1]=new Option("CSE","cse");
+            document.getElementById("status").options[2]=new Option("IT","it");
+            document.getElementById("status").options[3]=new Option("ECE","ece");
+            document.getElementById("status").options[4]=new Option("EEE","eee");
+            document.getElementById("status").options[5]=new Option("MECH","mech");
+            document.getElementById("status").options[6]=new Option("CIVIL","civil");
+            break;
+        case "gender" :
+            document.getElementById("status").options[0]=new Option("Select gender","");
+            document.getElementById("status").options[1]=new Option("MALE","male");
+            document.getElementById("status").options[2]=new Option("FEMALE","female");
+            document.getElementById("status").options[3]=new Option("OTHER","other");
+            document.getElementById("status").options[4]=new Option("---",""); 
+            document.getElementById("status").options[5]=new Option("---","");           
+            document.getElementById("status").options[6]=new Option("---","");
+            break;
+        case "proctor" :
+            document.getElementById("status").options[0]=new Option("Select proctor","");
+            document.getElementById("status").options[1]=new Option("STAFF","staff");
+            document.getElementById("status").options[2]=new Option("OTHER","other");
+            document.getElementById("status").options[3]=new Option("---","");
+            document.getElementById("status").options[4]=new Option("---","");
+            document.getElementById("status").options[5]=new Option("---","");
+            document.getElementById("status").options[6]=new Option("---","");
+            break;
+        }
+        return true;
+    }
+    </script>
+    </head>
+    <body>
+    <div style="width:350px;height:600pxmargin-top:200px;margin-left:450px;border:2px solid black;padding:20px;">
+    <form name="register" action="entry.php" method="post">
+<table>
+    <tr><td>Student-ID</td><td><input type="text" name="name" required></td><tr>
+    <tr><td>Student Name</td><td><input type="text" name="id" required></td><tr>
+</table>
+    <div class="category_div" id="category_div">FIELDS:
+        <select id="source" name="source" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+        <option value="">Select fields</option>
+        <option value="year">YEAR</option>
+        <option value="branch">BRANCH</option>
+        <option value="gender">GENDER</option>
+        <option value="proctor">PROCTOR</option>
+        </select>
+    </div>
+    <div class="sub_category_div" id="sub_category_div">VALUES:
+        <script type="text/javascript" language="JavaScript">
+        document.write('<select name="status" id="status"><option value="">Select values</option></select>')
+        </script>
+        <input type="submit" name="submit">
+     </form></div>
+
+        <!--<noscript>
+        <select id="status" name="status">
+            <option value="open">OPEN</option>
+            <option value="delivered">DELIVERED</option>
+        </select>
+        </noscript>-->
+    </div>
+    </body>
+</html>
+
+
+
+
